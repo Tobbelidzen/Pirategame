@@ -11,6 +11,7 @@ extents = Vector2( 32.4651, 32.5352 )
 extents = Vector2( 514.552, 10 )
 
 [node name="bootybae" type="Node2D"]
+position = Vector2( -2.15848, 6.47541 )
 
 [node name="clickobjects" type="Area2D" parent="."]
 position = Vector2( 452.202, 510.909 )
@@ -36,3 +37,6 @@ texture = ExtResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 144.172, 551.174 )
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+current = true

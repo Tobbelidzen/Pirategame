@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://navCode.gd" type="Script" id=1]
+[ext_resource path="res://Bilder/bg_Placeholder Harbor.jpg" type="Texture" id=2]
+[ext_resource path="res://Bilder/icon.png" type="Texture" id=3]
+[ext_resource path="res://FarHouse.gd" type="Script" id=4]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 129.318, 464.717, -506.839, 88.4245, -152.134, 39.5065, -1.76923, 126.054, 669.086, 378.171, 811.741, 521.161, 800.174, 404.51 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 5, 4, 6 ) ]
+outlines = [ PoolVector2Array( -506.839, 88.4245, 129.318, 464.717, 811.741, 521.161, 800.174, 404.51, 669.086, 378.171, -1.76923, 126.054, -152.134, 39.5065 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128.249, 126.52 )
+
+[node name="Harbourcorner" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+position = Vector2( 515.453, 294.242 )
+scale = Vector2( 0.53185, 0.544934 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Navmesh" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Map" type="Sprite" parent="Navigation2D"]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Character" type="KinematicBody2D" parent="Navigation2D"]
+position = Vector2( 297.547, 472.258 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite_char" type="Sprite" parent="Navigation2D/Character"]
+position = Vector2( -27.9591, -41.1569 )
+scale = Vector2( 4.05116, 4.00493 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -25, -50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Coll_char" type="CollisionShape2D" parent="Navigation2D/Character"]
+position = Vector2( 1.31287, -111.699 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FarHouse" type="Control" parent="Objects"]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 237.0
+margin_bottom = 341.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FHarea" type="Area2D" parent="Objects/FarHouse"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/FarHouse/FHarea"]
+polygon = PoolVector2Array( 277.099, 326.524, 247.562, 401.503, 147.591, 340.157 )
+__meta__ = {
+"_edit_lock_": true
+}

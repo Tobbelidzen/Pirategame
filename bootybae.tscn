@@ -38,5 +38,10 @@ texture = ExtResource( 2 )
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 144.172, 551.174 )
 
-[node name="Camera2D2" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+zoom = Vector2( 0.1, 0.1 )
+smoothing_enabled = true
+smoothing_speed = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true

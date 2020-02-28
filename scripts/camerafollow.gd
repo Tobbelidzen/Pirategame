@@ -1,9 +1,9 @@
-extends Camera2D
+#extends Camera2D
 
-onready var fake = get_node("..")
-var camerafollow
+#onready var fake = get_node("..")
+#var camerafollow
 
-func _process(delta):
+#func _process(delta):
 	
-	camerafollow=get_camera_position()
-	fake.position=camerafollow
+	#camerafollow=get_camera_position()
+	#fake.position=camerafollow

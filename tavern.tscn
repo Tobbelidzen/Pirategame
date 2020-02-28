@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tavern.jpg" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 514.175, 302.702 )
+
+[node name="tavern" type="Node2D"]
+position = Vector2( 510.254, 285.978 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 3.89606, 1.94801 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -2.3392, 0.690155 )
+scale = Vector2( 0.855333, 0.909057 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.108826, 3.75563 )
+shape = SubResource( 1 )

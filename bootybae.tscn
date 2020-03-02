@@ -19,13 +19,16 @@ position = Vector2( 452.202, 510.909 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="clickobjects"]
-position = Vector2( -59.023, 58.4437 )
+position = Vector2( -9.66295, 57.9944 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="clickobjects/CollisionShape2D"]
-position = Vector2( 0.0327148, -0.176025 )
+position = Vector2( 0.0319824, 0 )
 scale = Vector2( 0.159997, 0.121829 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="2dstagefloor" type="Area2D" parent="."]
 position = Vector2( 453.684, 574.737 )
@@ -47,3 +50,5 @@ position = Vector2( 144.172, 553.683 )
 [connection signal="area_entered" from="Doorscene" to="player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
 [connection signal="body_entered" from="Doorscene" to="player" method="_on_Doorscene_body_entered"]
+[connection signal="body_exited" from="Doorscene" to="player" method="_on_Doorscene_body_exited"]
+[connection signal="input_event" from="Doorscene" to="player" method="_on_Doorscene_input_event"]

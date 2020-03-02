@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/piratetest.png-e884d56a7fac05b21c60fabfd336792e.stex"
+path="res://.import/piratetest.png-d0045c9400eee43edf46c7fc7f4524db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://piratetest.png"
-dest_files=[ "res://.import/piratetest.png-e884d56a7fac05b21c60fabfd336792e.stex" ]
+source_file="res://sprites/piratetest.png"
+dest_files=[ "res://.import/piratetest.png-d0045c9400eee43edf46c7fc7f4524db.stex" ]
 
 [params]
 

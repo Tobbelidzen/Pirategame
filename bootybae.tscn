@@ -47,8 +47,10 @@ position = Vector2( 328.685, 539.153 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 144.172, 553.683 )
-[connection signal="area_entered" from="Doorscene" to="player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
+[connection signal="area_entered" from="Doorscene" to="player" method="_on_Area2D_area_entered"]
+[connection signal="area_shape_entered" from="Doorscene" to="player" method="_on_Doorscene_area_shape_entered"]
 [connection signal="body_entered" from="Doorscene" to="player" method="_on_Doorscene_body_entered"]
 [connection signal="body_exited" from="Doorscene" to="player" method="_on_Doorscene_body_exited"]
+[connection signal="body_shape_entered" from="Doorscene" to="player" method="_on_Doorscene_body_shape_entered"]
 [connection signal="input_event" from="Doorscene" to="player" method="_on_Doorscene_input_event"]

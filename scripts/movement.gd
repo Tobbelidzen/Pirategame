@@ -1,7 +1,12 @@
 extends KinematicBody2D
 
-export (int) var speed = 50
+var local = 0
 
+
+
+
+export (int) var speed = 50
+#var overlaps_body ("../Doorscene" body) const
 var velocity = Vector2()
 #var upkey = 0
 func get_input():
@@ -19,14 +24,14 @@ func get_input():
     #print(speed)
 
 func _physics_process(delta):
-    get_input()
-    velocity = move_and_slide(velocity)
-	
-
+	get_input()
+	velocity = move_and_slide(velocity)
+	if local > 0 && Input.is_action_pressed("ui_up"):
+		get_tree().change_scene("res://tavern.tscn")
 
 func _on_Doorscene_body_entered(body):
-	if Input.is_action_pressed("ui_up"):
-		get_tree().change_scene("res://tavern.tscn")
-		
+	local = 1
+	print(local)
 func _on_Doorscene_body_exited(body):
-	print("im out yo")
+	local = 0
+	print(local)

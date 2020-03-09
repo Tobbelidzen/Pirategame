@@ -1,4 +1,5 @@
 extends Area2D
+#(144.171997, 553.682983)
 
 
 func _input_event(viewport, event, shape_idx):

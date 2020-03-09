@@ -19,6 +19,10 @@ config/name="Pirategame"
 run/main_scene="res://bootybae.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [input]
 
 ui_left={

@@ -43,12 +43,13 @@ scale = Vector2( 15.9556, 0.350759 )
 texture = ExtResource( 2 )
 
 [node name="Doorscene" parent="." instance=ExtResource( 3 )]
-position = Vector2( 328.685, 539.153 )
+position = Vector2( 341.182, 539.153 )
+script = null
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 144.172, 553.683 )
-[connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
 [connection signal="area_entered" from="Doorscene" to="player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
 [connection signal="area_shape_entered" from="Doorscene" to="player" method="_on_Doorscene_area_shape_entered"]
 [connection signal="body_entered" from="Doorscene" to="player" method="_on_Doorscene_body_entered"]
 [connection signal="body_exited" from="Doorscene" to="player" method="_on_Doorscene_body_exited"]

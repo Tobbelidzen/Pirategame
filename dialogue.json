@@ -1,0 +1,4 @@
+{
+        "001" : {"name":"Ratpiss", "expression": "neutral", "text" : "You found something?"},
+        "002" : {"name":"Adam Blayne", "expression": "neutral", "text":"I don't think so."} 
+}

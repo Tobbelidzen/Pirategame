@@ -1,19 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://navCode.gd" type="Script" id=1]
-[ext_resource path="res://Bilder/bg_Placeholder Harbor.jpg" type="Texture" id=2]
-[ext_resource path="res://Bilder/icon.png" type="Texture" id=3]
-[ext_resource path="res://Farhouse.gd" type="Script" id=4]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bilder/bg_Placeholder Harbor.jpg" type="Texture" id=3]
+[ext_resource path="res://Grönhouse.gd" type="Script" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 800.174, 404.51, 811.741, 521.161, 139.633, 515.781, 669.086, 378.171, 12.0172, 137.82, -556.009, 100.874, 1.6087, 25.4359 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ), PoolIntArray( 5, 6, 4 ) ]
-outlines = [ PoolVector2Array( -556.009, 100.874, 139.633, 515.781, 811.741, 521.161, 800.174, 404.51, 669.086, 378.171, 12.0172, 137.82, 1.6087, 25.4359 ) ]
+vertices = PoolVector2Array( 1.60895, 122.426, -291.002, 332.574, -671.948, 100.873, -406.942, 52.3771, 45.7767, 14.6583, 54.066, 565.808, 965.56, 446.398, 959.442, 577.749 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 1, 0, 6, 7 ) ]
+outlines = [ PoolVector2Array( -291.002, 332.574, -671.948, 100.873, -406.942, 52.3771, 45.7767, 14.6583, 1.60895, 122.426, 965.56, 446.398, 959.442, 577.749, 54.066, 565.808 ) ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 128.249, 126.52 )
-
-[node name="Harbourcorner" type="Node2D"]
+[node name="Island3" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -29,77 +26,25 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Map" type="Sprite" parent="Navigation2D"]
-position = Vector2( -3.66272, 8.93695 )
-scale = Vector2( 1.00382, 1.01655 )
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Character" parent="Navigation2D" instance=ExtResource( 2 )]
 
-[node name="Character" type="KinematicBody2D" parent="Navigation2D"]
-position = Vector2( 30.9116, 315.861 )
-
-[node name="Sprite_char" type="Sprite" parent="Navigation2D/Character"]
-position = Vector2( -31.4387, 77.7044 )
-scale = Vector2( 4.05116, 4.00493 )
+[node name="Map" type="Sprite" parent="."]
+position = Vector2( 513.505, 299.112 )
+scale = Vector2( 0.533882, 0.553953 )
+z_index = -1
 texture = ExtResource( 3 )
-centered = false
-offset = Vector2( -25, -50 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Coll_char" type="CollisionShape2D" parent="Navigation2D/Character"]
-position = Vector2( 1.31287, 3.7662 )
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="objects" type="Node2D" parent="Map"]
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-
-[node name="Grön" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
-position = Vector2( -3327.09, -236.255 )
-scale = Vector2( 7.30209, 5.27083 )
-polygon = PoolVector2Array( 456.16, 44.8885, 455.355, 111.739, 486.721, 108.954, 488.329, 45.4456 )
-
-[node name="Röd" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
-position = Vector2( 2.9364, 5.87265 )
-polygon = PoolVector2Array( 529.434, -5.52814, 532.37, 355.64, 1008.05, 523.011, 1019.8, 3.28083 )
-
-[node name="objects" type="Control" parent="."]
-
-[node name="Grönhouse" type="Control" parent="objects" groups=[
-"Object",
-]]
-margin_top = 0.0636597
-margin_right = 231.0
-margin_bottom = 344.064
+[node name="Grönhouse" type="Control" parent="Map/objects"]
+margin_left = -945.0
+margin_top = -529.0
+margin_right = -533.0
+margin_bottom = 64.0
 script = ExtResource( 4 )
 
-[node name="interactpos" type="Position2D" parent="objects/Grönhouse" groups=[
-"interactpos",
-]]
-position = Vector2( 274.708, 354.545 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Rödhouse" type="Control" parent="objects" groups=[
-"Object",
-]]
-margin_left = 696.0
-margin_top = 6.0
-margin_right = 1027.0
-margin_bottom = 336.0
-script = ExtResource( 4 )
-
-[node name="interactpos" type="Position2D" parent="objects/Rödhouse" groups=[
-"interactpos",
-]]
-position = Vector2( 365.64, 477.934 )
-[connection signal="input_event" from="Area2D" to="Navigation2D" method="_on_Area2D_input_event"]
+[node name="interactpos" type="Position2D" parent="Map/objects/Grönhouse"]
+position = Vector2( 641.209, 666.595 )

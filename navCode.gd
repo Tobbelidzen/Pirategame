@@ -2,7 +2,7 @@ extends Navigation2D
 
 export(float) var character_speed = 300.0
 var path = []
-var interact = 0
+var interact = Vector2()
 
 
 func _process(delta):
@@ -13,7 +13,7 @@ func _process(delta):
 func _input(event):
 	if not event.is_action_pressed("click"):
 		return
-	_update_navigation_path($Character.position, get_interact_pos())
+	#_update_navigation_path($Character.position, get_interact_pos(interact))
 
 
 func move_along_path(distance):
@@ -36,28 +36,11 @@ func _update_navigation_path(start_position, end_position):
 	set_process(true)
 
 
-func get_interact_pos():
-	if get_tree().has_group("Object"):
+func get_interact_pos(pos):
+	print(pos)
+	_update_navigation_path($Character.global_position, pos) 
+	#if interact > 0:
 		
-		if get_local_mouse_position():
-			if has_node("interactpos"):
-				return get_node("interactpos").get_global_position()
-		else:
-			return get_local_mouse_position()
-			
-#func get_interact_pos():
-#	if interact == 1:
-#		interact = 0
-#		var nearestinteract = get_global_mouse_position().distance_to(get_node().get_global_pos()); 
-#		print(interact)
-#		return get_node("interactpos").get_global_position()
+#		return #$point.position
 #	else:
-#		return get_local_mouse_position()
-		
-
-#func _on_Area2D_input_event(viewport, event, shape_idx):
-#	if event.is_action_pressed("click"):
-#		print("yalla")
-#		interact = 1
-#		print(interact)
-		
+#	return get_local_mouse_position()

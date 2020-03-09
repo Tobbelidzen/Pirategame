@@ -27,6 +27,7 @@ __meta__ = {
 }
 
 [node name="Character" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( 55.009, 422.751 )
 
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( 513.505, 299.112 )
@@ -47,4 +48,18 @@ margin_bottom = 64.0
 script = ExtResource( 4 )
 
 [node name="interactpos" type="Position2D" parent="Map/objects/Grönhouse"]
-position = Vector2( 641.209, 666.595 )
+position = Vector2( -377.62, 136.673 )
+
+[node name="röd" type="Control" parent="Map/objects"]
+margin_left = 33.0
+margin_top = -548.0
+margin_right = 942.0
+margin_bottom = 45.0
+script = ExtResource( 4 )
+
+[node name="interactpos1" type="Position2D" parent="Map/objects/röd"]
+position = Vector2( 722.069, 1017.28 )
+[connection signal="mouse_entered" from="Map/objects/Grönhouse" to="Navigation2D" method="_on_Grnhouse_mouse_entered"]
+[connection signal="mouse_exited" from="Map/objects/Grönhouse" to="Navigation2D" method="_on_Grnhouse_mouse_exited"]
+[connection signal="mouse_entered" from="Map/objects/röd" to="Navigation2D" method="_on_Grnhouse_mouse_entered"]
+[connection signal="mouse_exited" from="Map/objects/röd" to="Navigation2D" method="_on_Grnhouse_mouse_exited"]

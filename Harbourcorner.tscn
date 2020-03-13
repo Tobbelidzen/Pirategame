@@ -69,6 +69,6 @@ margin_bottom = 631.039
 script = ExtResource( 6 )
 
 [node name="interactpos" type="Position2D" parent="Map/objects/Rödhouse2"]
-position = Vector2( 458.443, 940.447 )
+position = Vector2( 155.307, 276.464 )
 [connection signal="mouse_entered" from="Map/objects" to="Navigation2D" method="_on_objects_mouse_entered"]
 [connection signal="mouse_exited" from="Map/objects" to="Navigation2D" method="_on_objects_mouse_exited"]

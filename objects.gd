@@ -15,5 +15,9 @@ func _input(event):
 		movescript.mus = 1
 		movescript.get_interact_pos(point)
 		point = Vector2()
+	if musvar == 0:
+		movescript.mus = 0
+		movescript.get_interact_pos(point)
+		point = Vector2()
 
 

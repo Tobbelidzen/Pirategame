@@ -2,7 +2,6 @@ extends Navigation2D
 
 export(float) var character_speed = 300.0
 var path = []
-var interact = Vector2()
 var mus = 0
 
 func _process(delta):
@@ -39,23 +38,16 @@ func _update_navigation_path(start_position, end_position):
 func get_interact_pos(pos):
 	print(pos)
 	if mus == 1:
+		
 		_update_navigation_path($Character.position, pos) 
-	#if interact > 0:
 	else:
 		print(get_local_mouse_position())
 		_update_navigation_path($Character.position, get_local_mouse_position()) 
-#		return #$point.position
-#	else:
-#	return get_local_mouse_position()
 
-
-func _on_Grnhouse_mouse_entered():
+func _on_objects_mouse_entered():
 	mus = 1
 	print(mus)
-	pass # Replace with function body.
 
-
-func _on_Grnhouse_mouse_exited():
+func _on_objects_mouse_exited():
 	mus = 0
 	print(mus)
-	pass # Replace with function body.

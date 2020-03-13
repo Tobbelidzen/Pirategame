@@ -1,14 +1,16 @@
-extends Control
+extends MinKontroll
+onready var intpoint = get_child(0)
+onready var sendpos = get_node("..")
 
-
-onready var point = get_child(0)
-onready var movescript = get_node("../../../Navigation2D")
-onready var player = get_node("../../../Navigation2D/Character")
-
-func _input(event):
+	
+func _gui_input(event):
+	sendpos.musvar = 1
 	if event.is_action_pressed("click"):
-		movescript.get_interact_pos(point.position)
-		print(point.position)
-		if player.position == point.position:
+		sendpos.point = intpoint.position
+		print("Intpoint pos:")
+		print(intpoint.position)
+		print("Mouse Pos:")
+		print(get_global_mouse_position())
+		if player.position == intpoint.position:
 			print("funkar")
 	

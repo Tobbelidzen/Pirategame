@@ -1,13 +1,16 @@
-extends Node2D
+class_name MinKontroll
+extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var musvar = 0
+var point = Vector2()
+onready var movescript = get_node("/root/Island3/Navigation2D")
+onready var player = get_node("/root/Island3/Navigation2D/Character")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _input(event):
+	if musvar == 1:
+		movescript.mus = 1
+	if event.is_action_pressed("click"):
+		movescript.get_interact_pos(point)
+		point = Vector2()
+		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

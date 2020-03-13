@@ -57,7 +57,7 @@ margin_bottom = 590.333
 script = ExtResource( 5 )
 
 [node name="interactpos" type="Position2D" parent="Map/objects/Grönhouse"]
-position = Vector2( 495.122, 683.927 )
+position = Vector2( -340.797, 188.154 )
 
 [node name="Rödhouse2" type="Control" parent="Map/objects" groups=[
 "obj",

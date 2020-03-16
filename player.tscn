@@ -13,12 +13,13 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( 0.00528491, -0.617291 )
+position = Vector2( -25.8057, -24.6358 )
 scale = Vector2( 0.0651898, 0.0563671 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -30 )
+position = Vector2( 0, 30 )
 current = true
 zoom = Vector2( 0.3, 0.2 )
 drag_margin_h_enabled = false

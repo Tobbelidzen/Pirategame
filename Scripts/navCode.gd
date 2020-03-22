@@ -8,12 +8,9 @@ func _process(delta):
 	var walk_distance = character_speed * delta
 	move_along_path(walk_distance)
 
-
 func _input(event):
 	if not event.is_action_pressed("click"):
 		return
-	#_update_navigation_path($Character.position, get_interact_pos(interact))
-
 
 func move_along_path(distance):
 	var last_point = $Character.position
@@ -34,7 +31,6 @@ func _update_navigation_path(start_position, end_position):
 	path.remove(0)
 	set_process(true)
 
-
 func get_interact_pos(pos):
 	print(pos)
 	if mus == 1:
@@ -42,11 +38,3 @@ func get_interact_pos(pos):
 		mus = 0
 	else:
 		_update_navigation_path($Character.position, get_local_mouse_position()) 
-
-#func _on_objects_mouse_entered():
-#	mus = 1
-#	print(mus)
-
-#func _on_objects_mouse_exited():
-#	mus = 0
-#	print(mus)

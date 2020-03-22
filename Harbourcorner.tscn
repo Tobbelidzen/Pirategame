@@ -1,39 +1,50 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://navCode.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/navCode.gd" type="Script" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Bilder/bg_Placeholder Harbor.jpg" type="Texture" id=3]
-[ext_resource path="res://objects.gd" type="Script" id=4]
-[ext_resource path="res://Grönhouse.gd" type="Script" id=5]
-[ext_resource path="res://Rödhouse.gd" type="Script" id=6]
+[ext_resource path="res://Bilder/Realbg.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/objects.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Harbour/Grönhouse.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Harbour/Rödhouse.gd" type="Script" id=6]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( -220.879, 318.647, -521.202, 136.442, -54.4841, 77.027, -34.192, 164.169, 590.805, 397.866, 947.946, 485.008, 874.894, 528.578, 132.203, 512.734 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 3, 4, 7, 0 ) ]
-outlines = [ PoolVector2Array( -220.879, 318.647, -521.202, 136.442, -54.4841, 77.027, -34.192, 164.169, 590.805, 397.866, 947.946, 485.008, 874.894, 528.578, 132.203, 512.734 ) ]
+vertices = PoolVector2Array( -354.854, -5.65692, 52.9221, -5.65692, 344.191, 530.406, -704.377, 530.406, -712.699, 530.406 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2 ) ]
+outlines = [ PoolVector2Array( -704.377, 530.406, -354.854, -5.65692, 52.9221, -5.65692, 344.191, 530.406, -712.699, 530.406 ) ]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 2232.14, 489.154, 1717.87, 489.154, 1717.87, 204.279, 2301.64, 177.148, 995.109, -256.948, 2954.9, -270.513, 2968.8, 41.4932, 953.411, -26.3343 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 3, 2, 7 ) ]
+outlines = [ PoolVector2Array( 1717.87, 489.154, 1717.87, 204.279, 953.411, -26.3343, 995.109, -256.948, 2954.9, -270.513, 2968.8, 41.4932, 2301.64, 177.148, 2232.14, 489.154 ) ]
 
 [node name="Island3" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
 position = Vector2( 515.453, 294.242 )
 scale = Vector2( 0.53185, 0.544934 )
 script = ExtResource( 1 )
 
-[node name="Navmesh" type="NavigationPolygonInstance" parent="Navigation2D"]
+[node name="Character" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( 55.009, 422.751 )
+
+[node name="NavmeshDock" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Character" parent="Navigation2D" instance=ExtResource( 2 )]
-position = Vector2( 55.009, 422.751 )
+[node name="NavmeshHarbour" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 2 )
 
 [node name="Map" type="Sprite" parent="."]
-position = Vector2( 513.505, 299.112 )
-scale = Vector2( 0.533882, 0.553953 )
+position = Vector2( 1562.48, 887.776 )
+scale = Vector2( 1.01798, 0.991639 )
 z_index = -1
 texture = ExtResource( 3 )
 __meta__ = {
@@ -50,25 +61,43 @@ script = ExtResource( 4 )
 [node name="Grönhouse" type="Control" parent="Map/objects" groups=[
 "obj",
 ]]
-margin_left = 19.5226
-margin_top = -6.66705
-margin_right = 431.523
-margin_bottom = 590.333
+margin_left = 161.0
+margin_top = -345.0
+margin_right = 432.0
+margin_bottom = 245.0
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="interactpos" type="Position2D" parent="Map/objects/Grönhouse"]
-position = Vector2( -340.797, 188.154 )
+position = Vector2( -35.8044, 203.063 )
 
-[node name="Rödhouse2" type="Control" parent="Map/objects" groups=[
+[node name="Rödhouse" type="Control" parent="Map/objects" groups=[
 "obj",
 ]]
-margin_left = 995.15
-margin_top = 7.03918
-margin_right = 1901.15
-margin_bottom = 631.039
+margin_left = -566.0
+margin_top = -336.091
+margin_right = -430.0
+margin_bottom = 250.909
 script = ExtResource( 6 )
 
-[node name="interactpos" type="Position2D" parent="Map/objects/Rödhouse2"]
-position = Vector2( 155.307, 276.464 )
+[node name="interactpos" type="Position2D" parent="Map/objects/Rödhouse"]
+position = Vector2( -418.37, 209.372 )
+
+[node name="Harbourtest" type="Control" parent="Map/objects" groups=[
+"obj",
+]]
+margin_left = 430.0
+margin_top = -360.0
+margin_right = 1463.0
+margin_bottom = -210.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="interactpos" type="Position2D" parent="Map/objects/Harbourtest"]
+position = Vector2( 581.443, 68.8801 )
 [connection signal="mouse_entered" from="Map/objects" to="Navigation2D" method="_on_objects_mouse_entered"]
 [connection signal="mouse_exited" from="Map/objects" to="Navigation2D" method="_on_objects_mouse_exited"]

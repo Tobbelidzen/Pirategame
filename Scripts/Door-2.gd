@@ -9,5 +9,5 @@ func _gui_input(event):
 	sendpos.point = intpoint.position
 	if event.is_action_pressed("click"):
 		if player.position == intpoint.position:
-			print("funkar")
-	
+			sendpos.camerapos = sendpos.camerapos -2
+			sendpos.scenechange()

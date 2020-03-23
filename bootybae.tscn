@@ -10,7 +10,7 @@
 extents = Vector2( 5.22873, 3.59924 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 514.552, 10 )
+extents = Vector2( 651.155, 10 )
 
 [node name="bootybae" type="Node2D"]
 position = Vector2( -2.15848, 6.47541 )
@@ -35,12 +35,12 @@ __meta__ = {
 position = Vector2( 453.684, 574.737 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="2dstagefloor"]
-position = Vector2( 58.0168, 8.25 )
+position = Vector2( 58.0168, 7.68127 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="2dstagefloor/CollisionShape2D"]
-position = Vector2( -0.246094, 1.68761 )
-scale = Vector2( 15.9556, 0.350759 )
+position = Vector2( -13.9423, -0.0189209 )
+scale = Vector2( 20.1712, 0.350759 )
 texture = ExtResource( 2 )
 
 [node name="Doorscene" parent="." instance=ExtResource( 3 )]
@@ -48,12 +48,12 @@ position = Vector2( 341.182, 539.153 )
 script = null
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 136.657, 550 )
+position = Vector2( 137.849, 551.589 )
 
 [node name="tavern" parent="." instance=ExtResource( 5 )]
 visible = false
-[connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
 [connection signal="area_entered" from="Doorscene" to="player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Doorscene" to="player" method="_on_Doorscene_area_entered"]
 [connection signal="area_shape_entered" from="Doorscene" to="player" method="_on_Doorscene_area_shape_entered"]
 [connection signal="body_entered" from="Doorscene" to="player" method="_on_Doorscene_body_entered"]
 [connection signal="body_exited" from="Doorscene" to="player" method="_on_Doorscene_body_exited"]

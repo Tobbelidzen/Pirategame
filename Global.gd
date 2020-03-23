@@ -1,5 +1,5 @@
 extends Node
-var get_back = (Vector2 (135.979, 550))
+var get_back = (Vector2 (135.979, 551.589))
 var player
 
 

@@ -18,7 +18,7 @@ func get_input():
     velocity = Vector2()
     if Input.is_action_pressed('ui_right'):
         velocity.x += 1
-        print(Global.get_back)
+       # print(Global.get_back)
     if Input.is_action_pressed('ui_left'):
         velocity.x -= 1
         #set_global_position(Global.get_back)
@@ -36,8 +36,8 @@ func _physics_process(delta):
 		#Global.been_in_scene = 0
 	velocity = move_and_slide(velocity)
 	if local > 0 && Input.is_action_pressed("ui_up"):
-		Global.get_back = self.position
-		print(position)
+		Global.get_back = self.global_position
+		#print(position)
 		get_tree().change_scene("res://tavern.tscn")
 
 func _on_Doorscene_body_entered(body):
